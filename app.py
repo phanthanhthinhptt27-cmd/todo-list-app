@@ -60,9 +60,16 @@ if __name__ == "__main__":
     # Đánh dấu hoàn thành công việc đầu tiên
     complete_task(0)
     
+   
+    # Hiển thị lại danh sách sau khi đã cập nhật
+
     # Xóa công việc thứ hai (chỉ số 1)
     delete_task(1)
     
     # Hiển thị lại danh sách sau khi đã xóa
+ feature/complete-task
+ main
+
     main
+ main
     list_tasks()

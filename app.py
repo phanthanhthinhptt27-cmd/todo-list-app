@@ -2,6 +2,16 @@
 tasks = []
 
 def add_task(task_name):
+ feature/list-tasks
+    """Thêm một công việc mới vào danh sách."""
+    tasks.append(task_name)
+    print(f"Đã thêm công việc: '{task_name}'")
+
+def list_tasks():
+    """Duyệt qua danh sách tasks và in ra các công việc có đánh số thứ tự."""
+    print("\nDanh sách công việc:")
+    for index, task in enumerate(tasks, start=1):
+        print(f"{index}. {task}")
     """Thêm một công việc mới dưới dạng dictionary vào danh sách."""
     task = {'name': task_name, 'completed': False}
     tasks.append(task)
@@ -31,12 +41,17 @@ def list_tasks():
     for index, task in enumerate(tasks):
         status = "[x]" if task['completed'] else "[ ]"
         print(f"{index + 1}. {status} {task['name']}")
+main
 
 # --- Điểm bắt đầu của chương trình ---
 if __name__ == "__main__":
     print("Chào mừng đến với ứng dụng To-Do List!")
     add_task("Học bài Git và GitHub")
     add_task("Làm bài tập thực hành ở nhà")
+    feature/list-tasks
+
+    # Gọi hàm hiển thị danh sách công việc
+
     add_task("Ôn tập Công nghệ phần mềm")
     
     # Hiển thị danh sách ban đầu
@@ -49,4 +64,5 @@ if __name__ == "__main__":
     delete_task(1)
     
     # Hiển thị lại danh sách sau khi đã xóa
+    main
     list_tasks()

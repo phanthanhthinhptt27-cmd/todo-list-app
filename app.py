@@ -15,11 +15,20 @@ def complete_task(task_index):
     else:
         print("Chỉ số công việc không hợp lệ!")
 
+def delete_task(task_index):
+    """Xóa một công việc khỏi danh sách dựa trên chỉ số (index)."""
+    if 0 <= task_index < len(tasks):
+        removed_task = tasks.pop(task_index)
+        print(f"Đã xóa công việc: '{removed_task['name']}'")
+    else:
+        print("Chỉ số công việc không hợp lệ!")
+
 def list_tasks():
     """Hiển thị danh sách công việc kèm trạng thái hoàn thành."""
-    print("\nDanh sách công việc:")
+    print("\nDanh sách công việc hiện tại:")
+    if not tasks:
+        print("(Danh sách trống)")
     for index, task in enumerate(tasks):
-        # Chọn ký hiệu [x] nếu đã hoàn thành, [ ] nếu chưa
         status = "[x]" if task['completed'] else "[ ]"
         print(f"{index + 1}. {status} {task['name']}")
 
@@ -28,12 +37,16 @@ if __name__ == "__main__":
     print("Chào mừng đến với ứng dụng To-Do List!")
     add_task("Học bài Git và GitHub")
     add_task("Làm bài tập thực hành ở nhà")
+    add_task("Ôn tập Công nghệ phần mềm")
     
     # Hiển thị danh sách ban đầu
     list_tasks()
     
-    # Đánh dấu công việc đầu tiên (chỉ số 0) là hoàn thành
+    # Đánh dấu hoàn thành công việc đầu tiên
     complete_task(0)
     
-    # Hiển thị lại danh sách sau khi đã cập nhật
+    # Xóa công việc thứ hai (chỉ số 1)
+    delete_task(1)
+    
+    # Hiển thị lại danh sách sau khi đã xóa
     list_tasks()
